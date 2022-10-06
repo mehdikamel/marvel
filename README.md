@@ -11,13 +11,13 @@ To install the project, you first need to install npm and angular/cli
 Clone the project
 
 ```bash
-  git clone https://link-to-project
+  git clone https://github.com/mehdikamel/marvel.git
 ```
 
 Go to the project directory
 
 ```bash
-  cd my-project
+  cd marvel
 ```
 
 Install dependencies
