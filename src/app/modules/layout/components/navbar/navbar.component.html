@@ -1,0 +1,30 @@
+<mat-toolbar class="toolbar">
+  <div class="spacer"></div>
+  <img
+    src="../../../../../assets/images/marvel-logo.png"
+    alt="marvel-logo"
+    class="navbar-logo"
+  />
+  <div class="actions">
+    <button mat-button routerLink="/">All characters</button>
+    <button mat-button [matMenuTriggerFor]="favouriteCharactersMenu">
+      Favourites characters
+    </button>
+  </div>
+</mat-toolbar>
+
+<mat-menu #favouriteCharactersMenu="matMenu">
+  <div
+    mat-menu-item
+    class="menu-item"
+    *ngFor="let character of favouritesCharacters$ | async"
+  >
+    <img
+      [src]="character.thumbnail.path + '.' + character.thumbnail.extension"
+      class="menu-character-image"
+    />
+    <button mat-button (click)="onSelectCharacter(character)">
+      {{ character.name }}
+    </button>
+  </div>
+</mat-menu>

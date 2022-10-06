@@ -1,0 +1,34 @@
+.toolbar {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  background-color: #fff;
+  border-bottom: solid 1px #dbdbdb;
+  height: 50px;
+  z-index: 1000;
+
+  .navbar-logo {
+    height: 80%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .spacer{
+    flex: 1 1 auto;
+  }
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .menu-character-image {
+    height: 40px;
+    width: 40px;
+    margin-right: 1rem;
+    border-radius: 50%;
+  }
+}

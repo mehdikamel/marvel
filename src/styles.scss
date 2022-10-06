@@ -1,0 +1,25 @@
+
+/* You can add global styles to this file, and also import other style files */
+@import './assets/styles/material-theme.scss';
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+html, body { height: 100%; }
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: #f3f3f3;
+}
+
+.mat-icon-button.button-favorite .mat-icon {
+  color: #dbdbdb;
+}
+
+.mat-icon-button.button-favorite .mat-icon.favorite {
+  color: red;
+}
+
+.mat-progress-spinner {
+  margin: 200px auto;
+}
+

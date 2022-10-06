@@ -1,0 +1,21 @@
+<div class="card" *ngIf="character">
+  <img
+    [src]="character.thumbnail.path + '.' + character.thumbnail.extension"
+    class="card-image"
+  />
+
+  <div class="card-content">
+    <a class="card-title" (click)="onSelectCharacter()">
+      {{ character.name }}
+    </a>
+    <button
+      mat-icon-button
+      (click)="onClickFavourite()"
+      class="button-favorite"
+    >
+      <mat-icon [ngClass]="{ favorite: checkCharacterIsInFavourites() }"
+        >favorite</mat-icon
+      >
+    </button>
+  </div>
+</div>

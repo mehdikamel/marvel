@@ -1,0 +1,39 @@
+<ng-container *ngIf="character && comicsList$ | async; else loaderTemplate">
+  <div class="character-details">
+    <img
+      [src]="character.thumbnail.path + '.' + character.thumbnail.extension"
+      class="character-image"
+    />
+    <div class="character-infos">
+      <div class="character-name">
+        <h1>{{ character.name }}</h1>
+        <button
+          mat-icon-button
+          (click)="onClickFavourite()"
+          class="button-favorite"
+        >
+          <mat-icon [ngClass]="{ favorite: checkCharacterIsInFavourites() }"
+            >favorite</mat-icon
+          >
+        </button>
+      </div>
+
+      <h4>Description :</h4>
+      <p>{{ character.description || "Description unavailable" }}</p>
+      <h4>
+        Comics in which he appears (total = {{ character.comics.available }}) :
+      </h4>
+      <ul>
+        <li *ngFor="let comic of comicsList$ | async">
+          {{ comic.title }}
+        </li>
+      </ul>
+    </div>
+  </div>
+</ng-container>
+<ng-template #loaderTemplate>
+  <mat-progress-spinner
+    color="accent"
+    mode="indeterminate"
+  ></mat-progress-spinner>
+</ng-template>

@@ -1,0 +1,33 @@
+<ng-container *ngIf="characters; else loaderTemplate">
+  <div class="cards-grid">
+    <ng-container *ngFor="let character of characters">
+      <app-character-card [character]="character"></app-character-card>
+    </ng-container>
+  </div>
+  <div class="nav-buttons">
+    <button
+      mat-flat-button
+      color="accent"
+      [disabled]="offset === 0"
+      (click)="onChangePagePrev()"
+    >
+      Previous
+    </button>
+    <button
+      mat-flat-button
+      color="accent"
+      [disabled]="offset + limit > total"
+      (click)="onChangePageNext()"
+    >
+      Next
+    </button>
+  </div>
+</ng-container>
+<ng-template #loaderTemplate>
+  <div class="loader">
+    <mat-progress-spinner
+      color="accent"
+      mode="indeterminate"
+    ></mat-progress-spinner>
+  </div>
+</ng-template>

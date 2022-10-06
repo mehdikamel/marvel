@@ -1,0 +1,79 @@
+@use '@angular/material' as mat;
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+@include mat.core();
+
+$red: (
+  50: #f8a5a7,
+  100: #f68e92,
+  200: #f4777c,
+  300: #f26166,
+  400: #f14a50,
+  500: #ef343a,
+  600: #ed1d24,
+  700: #d51a20,
+  800: #be171d,
+  900: #a61419,
+  A100: #c3e200,
+  A200: #b3cb16,
+  A400: #a2b42d,
+  A700: #929e43,
+  contrast: (
+    50: black,
+    100: black,
+    200: black,
+    300: black,
+    400: white,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+    A100: white,
+    A200: white,
+    A400: black,
+    A700: black,
+  ),
+);
+
+$black: (
+  50: #e1e4e6,
+  100: #b5bcc0,
+  200: #849096,
+  300: #53646b,
+  400: #2e424c,
+  500: #09212c,
+  600: #081d27,
+  700: #061821,
+  800: #05141b,
+  900: #020b10,
+  A100: #52b5ff,
+  A200: #1f9fff,
+  A400: #0087eb,
+  A700: #0078d2,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #ffffff,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #ffffff,
+    A700: #ffffff,
+  ),
+);
+
+$mat-theme-primary: mat.define-palette($black);
+
+$mat-theme-accent: mat.define-palette($red, 600);
+
+$mat-theme-warn: mat.define-palette(mat.$red-palette);
+
+$mat-theme: mat.define-light-theme($mat-theme-primary, $mat-theme-accent, $mat-theme-warn);
+
+@include mat.all-component-themes($mat-theme);

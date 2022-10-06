@@ -1,0 +1,24 @@
+.card {
+  background-color: #fff;
+  border: solid 1px #dbdbdb;
+  overflow: hidden;
+
+  .card-image {
+    height: 200px;
+    width: 100%;
+  }
+
+  .card-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 15px;
+    
+    .card-title {
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+
+  }
+}
