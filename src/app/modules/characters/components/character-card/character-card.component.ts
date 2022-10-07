@@ -1,7 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Character } from 'src/app/interfaces/character';
-import { MarvelApiService } from 'src/app/services/marvel-api.service';
+
+import { Character } from '../../../../interfaces/character';
+import { MarvelApiService } from '../../../../services/marvel-api.service';
 
 @Component({
   selector: 'app-character-card',

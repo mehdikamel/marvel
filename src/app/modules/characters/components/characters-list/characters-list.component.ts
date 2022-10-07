@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Subject, takeUntil } from 'rxjs';
-import { Character } from 'src/app/interfaces/character';
-import { MarvelApiService } from 'src/app/services/marvel-api.service';
+
+import { Character } from '../../../../interfaces/character';
+import { MarvelApiService } from '../../../../services/marvel-api.service';
 
 @Component({
   selector: 'app-characters-list',
@@ -22,7 +23,7 @@ export class CharactersListComponent implements OnInit {
     this.getCharacters();
   }
 
-  private getCharacters(): void {
+  getCharacters(): void {
     this.marvelApiService
       .getCharactersList(this.limit, this.offset)
       .pipe(takeUntil(this.destroyed$))
@@ -47,17 +48,15 @@ export class CharactersListComponent implements OnInit {
     this.scrollToTop();
   }
 
-  onViewDetailsCharacter(character: Character): void {}
-
-  ngOnDestroy(): void {
-    this.destroyed$.next(true), this.destroyed$.complete();
-  }
-
   scrollToTop() {
     window.scroll({
       top: 0,
       left: 0,
       behavior: 'smooth',
     });
+  }
+
+  ngOnDestroy(): void {
+    this.destroyed$.next(true), this.destroyed$.complete();
   }
 }

@@ -2,8 +2,8 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { TestBed } from '@angular/core/testing';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { environment } from 'src/environments/environment';
 
+import { environment } from '../../environments/environment';
 import { Character, CharacterListResponse } from '../interfaces/character';
 import { MarvelApiService } from './marvel-api.service';
 
@@ -23,15 +23,6 @@ describe('MarvelApiService', () => {
 
     service = TestBed.inject(MarvelApiService);
     httpMock = TestBed.get(HttpTestingController);
-
-    let store: any = {};
-
-    spyOn(localStorage, 'getItem').and.callFake(
-      (key: string): string => store[key] || null
-    );
-    spyOn(localStorage, 'setItem').and.callFake(
-      (key: string, value: string): string => (store[key] = <string>value)
-    );
   });
 
   afterEach(() => {
@@ -196,12 +187,5 @@ describe('MarvelApiService', () => {
     );
     expect(req.request.method).toBe('GET');
     req.flush(dummyComicListResponse);
-  });
-
-  it('addFavouriteCharacter() should add a character on favourite list if character is not on the list', () => {
-    service.addFavouriteCharacter(dummyCharacter);
-    expect(localStorage.getItem('favourites')).toBe(
-      JSON.stringify([dummyCharacter])
-    );
   });
 });

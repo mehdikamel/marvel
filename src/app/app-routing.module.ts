@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { CharactersDetailsComponent } from './modules/characters/components/characters-details/characters-details.component';
-import { CharactersListComponent } from './modules/characters/components/characters-list/characters-list.component';
-
 const routes: Routes = [
-  { path: 'characters', component: CharactersListComponent },
-  { path: 'characters/details/:id', component: CharactersDetailsComponent },
+  {
+    path: 'characters',
+    loadChildren: () =>
+      import('./modules/characters/characters.module').then(
+        (m) => m.CharactersModule
+      ),
+  },
   { path: '', redirectTo: '/characters', pathMatch: 'full' },
 ];
 

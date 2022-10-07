@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, Subject, takeUntil } from 'rxjs';
-import { Character } from 'src/app/interfaces/character';
-import { MarvelApiService } from 'src/app/services/marvel-api.service';
+
+import { Character } from '../../../../interfaces/character';
+import { MarvelApiService } from '../../../../services/marvel-api.service';
 
 @Component({
   selector: 'app-characters-details',
